@@ -16,7 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * test
+ * test BEN WAR HIER
  * @author normenhansen
  */
 public class DanceDoll extends SimpleApplication {
