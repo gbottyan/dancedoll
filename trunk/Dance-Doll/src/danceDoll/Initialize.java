@@ -75,7 +75,7 @@ public class Initialize extends DanceDoll {
         guiViewPort.attachScene(guiNode);
 
         niftyDisplay = new NiftyJmeDisplay(assetManager, inputManager, audioRenderer, guiViewPort);
-        niftyDisplay.getNifty().fromXml("Interface/initialize.xml", "start");
+        //niftyDisplay.getNifty().fromXml("Interface/initialize.xml", "start");
         guiViewPort.addProcessor(niftyDisplay);
 
         // Model laden
@@ -83,7 +83,7 @@ public class Initialize extends DanceDoll {
         skelett = m.getSkeletton();
 
         // BVH- Einlesen
-        BVHController bvh = new BVHController(assetManager, "Animations/01.bvh");
+        BVHController bvh = new BVHController(assetManager, "Animations/bvh-test-13.bvh");
 
         // Animation laden & starten
         AnimationControl ani = new AnimationControl(m);
