@@ -28,8 +28,9 @@ public class GuiController extends AbstractAppState implements ScreenController 
   private SimpleApplication app;
   private Vector3f posBuffer;
   private Camera cam;
-  private float yTilt = .0f;
-  private float zoomBuffer = 0.0f;
+  private float yTilt = -4.0f;
+  private Vector3f home;
+ 
   
  
   /** custom methods */ 
@@ -44,6 +45,8 @@ public class GuiController extends AbstractAppState implements ScreenController 
     this.nifty = nifty;
     this.posBuffer = cam.getLocation();
     this.cam = cam;
+    this.home = new Vector3f(.0f,-4.0f,-20.0f);
+    home();
   }
   
   public GuiController(Nifty nifty) { 
@@ -60,31 +63,24 @@ public class GuiController extends AbstractAppState implements ScreenController 
  
   public void onStartScreen() { }
   
-  /* Scrollbar Event Listener
-   * @Christian Braun
-   */
+  public void home(){
+      System.out.println("home");
+      cam.setLocation(home);
+      cam.lookAt(home, new Vector3f(0.f,0.f,0.f));
+      cam.setFrustumPerspective(30.f, 1.f, 10.f, 1000.f);
+      nifty.fromXml("Interface/Gui.xml","start");
+  }
   
   @NiftyEventSubscriber(id="zoom")
   public void zoom(final String id, final SliderChangedEvent event) { 
-      System.out.println("zoom");
-  //   cam.setLocation(dir.scaleAdd((event.getValue()-50.f)/10.f, posBackUp));
-      System.out.println(event.getValue());
-     zoomBuffer += (event.getValue()-50.f)/100.f;
-     System.out.println(zoomBuffer);
-   //  cam.setLocation(cam.getDirection().scaleAdd(zoomBuffer, posBuffer));
-     cam.setFrustumPerspective(event.getValue()+30, 1.f, 1.f, 1000.f);
-    // cam.setf
-   //  posBuffer = cam.getLocation();
-     zoomBuffer = .0f;
-  
+      cam.setFrustumPerspective(event.getValue()+20, 1.f, 10.f, 1000.f); 
   }
   
     @NiftyEventSubscriber(id="height")
   public void hight(final String id, final SliderChangedEvent event) {
-       cam.setLocation (cam.getLocation().setY((event.getValue()-50.f)/10.f)); 
-     //cam.setLocation(new Vector3f (posBackUp.x,(event.getValue()-50)/10,posBackUp.z));
-     cam.lookAt(new Vector3f (0,yTilt,0), new Vector3f (0.f,0.f,0.f));
-     posBuffer.setY((event.getValue()-50)/10.f);
+      cam.setLocation (cam.getLocation().setY((event.getValue()-50.f)/10.f)); 
+      cam.lookAt(new Vector3f (0,yTilt,0), new Vector3f (0.f,0.f,0.f));
+      posBuffer.setY((event.getValue()-50)/10.f);
   }
  
   @NiftyEventSubscriber(id="tilt")
@@ -107,8 +103,6 @@ public class GuiController extends AbstractAppState implements ScreenController 
       cam.lookAt(new Vector3f (0,yTilt,0), new Vector3f (0.f,0.f,0.f));
       posBuffer = cam.getLocation();
     
-      
-  
   }
   
   public void onEndScreen() { }

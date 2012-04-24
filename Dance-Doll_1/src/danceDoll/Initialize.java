@@ -90,7 +90,7 @@ public class Initialize extends DanceDoll {
         skelett = m.getSkeletton();
 
         // BVH- Einlesen
-        BVHController bvh = new BVHController(assetManager, "Animations/14_Grundmove.bvh");
+        BVHController bvh = new BVHController(assetManager, "Animations/Loop.bvh");
 
         // Animation laden & starten
         AnimationControl ani = new AnimationControl(m);
