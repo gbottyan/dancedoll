@@ -75,7 +75,7 @@ public class Initialize extends DanceDoll {
         guiViewPort.attachScene(guiNode);
 
         niftyDisplay = new NiftyJmeDisplay(assetManager, inputManager, audioRenderer, guiViewPort);
-        //niftyDisplay.getNifty().fromXml("Interface/initialize.xml", "start");
+        niftyDisplay.getNifty().fromXml("Interface/initialize.xml", "start");
         guiViewPort.addProcessor(niftyDisplay);
 
         // Model laden
