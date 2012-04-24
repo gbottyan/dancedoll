@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nifty />
+  <!-- +++++++++++++++++++++++++++++++++++++++ -->
+  <!-- nifty-styles -->
+  <!-- +++++++++++++++++++++++++++++++++++++++ -->
+<nifty-styles>
+<!-- define a style with the name „myStyle“ -->
+<style id="first">
+    <attributes font="myfont.fnt" backgroundColor="#f00f" />
+</style>
+
+<style id="nifty-button#panel">
+<attributes backgroundImage="button/button.png"
+imageMode="sprite-resize:100,23,0,2,96,2,2,2,96,2,19,2,96,2,2"
+paddingLeft="7px"
+paddingRight="7px"
+width="500px"
+height="23px"
+childLayout="center"
+visibleToMouse="true" />
+</style>
+<!-- you can have more <style> definitions here -->
+</nifty-styles>
