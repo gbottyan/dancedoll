@@ -5,8 +5,13 @@ import com.jme3.app.Application;
 import com.jme3.app.SimpleApplication;
 import com.jme3.app.state.AbstractAppState;
 import com.jme3.app.state.AppStateManager;
+import com.jme3.light.SpotLight;
+import com.jme3.math.ColorRGBA;
 import com.jme3.math.Vector3f;
 import com.jme3.renderer.Camera;
+import danceDoll.AnimationControl;
+import danceDoll.BVHController;
+import danceDoll.DanceDoll;
 import de.lessvoid.nifty.Nifty;
 import de.lessvoid.nifty.NiftyEventSubscriber;
 import de.lessvoid.nifty.controls.SliderChangedEvent;
@@ -41,10 +46,11 @@ public class GuiController extends AbstractAppState implements ScreenController 
   
   
   // Constructor with option to change camera-settings
-  public GuiController(Nifty nifty, Camera cam) { 
+  public GuiController(Nifty nifty, DanceDoll dd) { 
+    this.app = dd;
     this.nifty = nifty;
-    this.posBuffer = cam.getLocation();
-    this.cam = cam;
+    this.posBuffer = dd.getCamera().getLocation();
+    this.cam = dd.getCamera();
     this.home = new Vector3f(.0f,-4.0f,-20.0f);
     home();
   }
@@ -63,11 +69,18 @@ public class GuiController extends AbstractAppState implements ScreenController 
  
   public void onStartScreen() { }
   
+  // Controlls on left side
+ public void load1(){
+   
+  }
+  
+  
+  // Controlls on right side
   public void home(){
-      System.out.println("home");
       cam.setLocation(home);
       cam.lookAt(home, new Vector3f(0.f,0.f,0.f));
       cam.setFrustumPerspective(30.f, 1.f, 10.f, 1000.f);
+      posBuffer = app.getCamera().getLocation();
       nifty.fromXml("Interface/Gui.xml","start");
   }
   
@@ -91,8 +104,6 @@ public class GuiController extends AbstractAppState implements ScreenController 
   
   @NiftyEventSubscriber(id="turn")
   public void turn(final String id, final SliderChangedEvent event) {
-     
-      
       float length = (float)Math.sqrt(Math.pow(cam.getLocation().getX(),2)+Math.pow(cam.getLocation().getZ(), 2));
   
       Vector3f posTurn = new Vector3f ((float)(Math.sin(event.getValue()*3.6*2*Math.PI/3600.*length)),   
@@ -101,7 +112,7 @@ public class GuiController extends AbstractAppState implements ScreenController 
       
       cam.setLocation(new Vector3f (posTurn.getX()*length,cam.getLocation().getY(),posTurn.getZ()*length));
       cam.lookAt(new Vector3f (0,yTilt,0), new Vector3f (0.f,0.f,0.f));
-      posBuffer = cam.getLocation();
+      posBuffer = app.getCamera().getLocation();
     
   }
   

@@ -28,7 +28,7 @@ import de.lessvoid.nifty.render.image.ImageModeHelper;
  * @author void
  */
 public class ChangeImage implements EffectImpl {
-  private Logger log = Logger.getLogger(ChangeImage.class.getName());
+ // private Logger log = Logger.getLogger(ChangeImage.class.getName());
   private Element element;
   private NiftyImage activeImage;
   private NiftyImage inactiveImage;
@@ -65,7 +65,7 @@ private NiftyImage loadImage(final String name, final Nifty nifty, final EffectP
   private void changeElementImage(final NiftyImage image) {
     ImageRenderer imageRenderer = element.getRenderer(ImageRenderer.class);
     if (imageRenderer == null) {
-      log.warning("this effect can only be applied to images!");
+     // log.warning("this effect can only be applied to images!");
       return;
     }
     imageRenderer.setImage(image);
