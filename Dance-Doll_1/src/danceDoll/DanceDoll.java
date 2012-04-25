@@ -3,8 +3,10 @@ package danceDoll;
 import com.jme3.app.SimpleApplication;
 import com.jme3.asset.AssetManager;
 import com.jme3.input.MouseInput;
+import com.jme3.light.SpotLight;
 import com.jme3.math.FastMath;
 import com.jme3.math.Quaternion;
+import com.jme3.math.Vector3f;
 
 import com.jme3.scene.Node;
 
@@ -39,7 +41,7 @@ public class DanceDoll extends SimpleApplication {
     @Override
     public void start(JmeContext.Type contextType) {
         AppSettings settings = new AppSettings(true);
-        settings.setResolution(800, 600);
+        settings.setResolution(1000, 600);
         settings.setFrameRate(40);
         settings.setTitle("Dance Doll Alpha V. 0.2");
         settings.setSamples(2); // Kantenglättung

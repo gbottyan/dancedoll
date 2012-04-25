@@ -59,8 +59,8 @@ public class Initialize extends DanceDoll {
         pssmRenderer.setShadowIntensity(0.6f);
         pssmRenderer.setFilterMode(PssmShadowRenderer.FilterMode.PCF8);
         pssmRenderer.setEdgesThickness(5);
-        //viewPort.addProcessor(pssmRenderer);  
-
+        //viewPort.addProcessor(pssmRenderer);
+        
         // Turntable laden
         Scenery sc = new Scenery(assetManager);
         Node scenery = sc.getNode();
@@ -80,9 +80,7 @@ public class Initialize extends DanceDoll {
        
         niftyDisplay = new NiftyJmeDisplay(assetManager, inputManager, audioRenderer, guiViewPort);
         Nifty nifty = niftyDisplay.getNifty();
-        //   niftyDisplay.getNifty().fromXml("Interface/initialize.xml", "start");
-        System.out.println("hä?");
-        niftyDisplay.getNifty().fromXml("Interface/Gui.xml","start", new GuiController(nifty,cam));
+        niftyDisplay.getNifty().fromXml("Interface/Gui.xml","start", new GuiController(nifty,dd));
         guiViewPort.addProcessor(niftyDisplay);
 
         // Model laden
@@ -97,7 +95,7 @@ public class Initialize extends DanceDoll {
         ani.createAnimation(bvh);
         ani.startAnimation(1);
     }
-
+    
     public DanceDoll getDoll() {
         return danceDoll;
     }
