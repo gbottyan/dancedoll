@@ -284,22 +284,37 @@
 
                     <panel childLayout="vertical" align="left" width="100%" height="100px" >                    
                         
-                        <panel id="File_text_rec_play" width="120px" height="80px" align="center" 
+                        <panel id="Cam" width="120px" height="80px" align="center" 
                         childLayout="vertical" backgroundImage="Interface/Button/Cam.png" >   
                         </panel>
+                        
+                        <panel id="Cam_Slider" width="120px" height="120px" childLayout="horizontal">          
 <!-- cam_height --> 
-                        <text font="aurulent-sans-16.fnt" color="#ffff" text="height" align="center" /> 
-                        <control id="height" name="horizontalSlider" worldMax="800.0" worldPageSize="100.0" initial="0.0" buttonStepSize="10.0" pageStepSize="100.0" />                  
+                            <panel width="18%"></panel>
+                            <control id="height" name="verticalSlider" worldMax="800.0" worldPageSize="100.0" initial="0.0" buttonStepSize="10.0" pageStepSize="100.0" />                                 
 <!-- cam_zoom -->
-                        <text font="aurulent-sans-16.fnt" color="#ffff" text="zoom" align="center" />
-                        <control id="zoom" name="horizontalSlider" worldMax="100" worldPageSize="50.0" initial="0.0" buttonStepSize="10.0" pageStepSize="100.0" />       
+                            <panel width="18%"></panel>
+                            <control id="zoom" name="verticalSlider" worldMax="100" worldPageSize="50.0" initial="0.0" buttonStepSize="10.0" pageStepSize="100.0" />        
 <!-- cam_tilt -->   
-                        <text font="aurulent-sans-16.fnt" color="#ffff" text="tilt" align="center" />
-                        <control id="tilt" name="horizontalSlider" worldMax="200" worldPageSize="100" initial="0.0" buttonStepSize="10" pageStepSize="100" />
-
+                            <panel width="18%"></panel>
+                            <control id="tilt" name="verticalSlider" worldMax="200" worldPageSize="100" initial="0.0" buttonStepSize="10" pageStepSize="100" /> 
+                        </panel>
+                        
+                        <panel id="Cam_Slider_Names" width="120px" height="10px" childLayout="horizontal">
+                            <panel width="65px" childLayout="center">
+                                <text font="aurulent-sans-16.fnt" color="#ffff" text="height" align="center" />
+                            </panel>
+                            <panel width="25px" childLayout="center">
+                                <text font="aurulent-sans-16.fnt" color="#ffff" text="zoom" align="center" />
+                            </panel>
+                            <panel width="60px" childLayout="center">
+                                <text font="aurulent-sans-16.fnt" color="#ffff" text="tilt" align="center" />
+                            </panel>
+                        </panel>
+                        
                         <panel align="left" width="100%" height="20px" ></panel>
                         
-                        <panel id="File_text_rec_play" width="120px" height="80px" align="center" 
+                        <panel id="Doll" width="120px" height="80px" align="center" 
                         childLayout="vertical" backgroundImage="Interface/Button/Doll.png" >   
                         </panel>
 <!-- turn_pos -->
