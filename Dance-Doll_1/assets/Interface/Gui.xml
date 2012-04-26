@@ -311,7 +311,7 @@
             </panel>
 
 <!-- Cache rechts (Abstandshalter) -->
-            <panel id="screen_right_cache" width="2%" height="100%" childLayout="vertical"></panel>
+            <panel id="screen_right_cache" width="3%" height="100%" childLayout="vertical"></panel>
                     
      </layer>
   </screen>  
