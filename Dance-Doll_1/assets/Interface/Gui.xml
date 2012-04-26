@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<nifty  >
+<nifty  xmlns="http://nifty-gui.sourceforge.net/nifty-1.3.xsd" 
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+        xsi:schemaLocation="http://nifty-gui.sourceforge.net/nifty-1.3.xsd http://nifty-gui.sourceforge.net/nifty-1.3.xsd">
   
 <!-- ++++++++ -->
 <!--  import  -->
@@ -15,12 +17,12 @@
   
     <screen id="start" controller="GuiController.GuiController">
       
-<!-- Hintergrund-Layer 
+<!-- Hintergrund-Layer -->
         <layer id="hintergrund" childLayout="vertical">
             <panel id="jmndc" width="100%" heigth="100%" backgroundImage= "Interface/1280x768_Hintergrund.png">
             </panel>
         </layer>
-   -->
+  
 <!-- Vordergrund-Layer -->
         <layer id="vordergrund" childLayout="horizontal">
        
@@ -136,25 +138,50 @@
                         <onHover name="changeImage" active="Interface/Button/File_play_select.png" inactive="Interface/Button/File_play_normal.png" />
                         <onClick name="changeImage" active="Interface/Button/File_play_pressed.png" inactive="Interface/Button/File_play_normal.png" length="infinite" />
                     </effect>
-                </image> 
-
-<!-- Cache mitte (Abstandshalter) -->               
-                <panel id="File_play_cache_mitte" width="100%" height="50%" > 
-                </panel>
-                
+                </image>
+            
 <!-- ******************* -->
 <!--  REC_PLAY_BUTTON  -->
 <!-- ******************* -->
 
-<!--rec_play-->
-                <image id="rec_play" filename="Interface/Button/File_play_normal.png" visibleToMouse="true" align="center" inset="1px" filter="true" >
-                    <!-- <interact onClick="startGame(test)" /> -->
-                    <effect>
-                        <onHover name="changeImage" active="Interface/Button/File_play_select.png" inactive="Interface/Button/File_play_normal.png" />
-                        <onClick name="changeImage" active="Interface/Button/File_play_pressed.png" inactive="Interface/Button/File_play_normal.png" length="infinite" />
-                    </effect>
-                </image> 
+                <panel id="panel_rec_play" width="100%" childLayout="vertical" >
 
+<!-- Cache mitte (Abstandshalter) -->               
+                    <panel id="File_play_cache_mitte_" width="100%"> 
+                    </panel>
+                
+                    <panel id="File_rec_play" width="100%" childLayout="vertical">
+
+<!--rec_play-->
+                        <image id="rec_play" filename="Interface/Button/File_play_normal.png" visibleToMouse="true" align="center" inset="1px" filter="true" >
+                        <!-- <interact onClick="startGame(test)" /> -->
+                            <effect>
+                                <onHover name="changeImage" active="Interface/Button/File_play_select.png" inactive="Interface/Button/File_play_normal.png" />
+                                <onClick name="changeImage" active="Interface/Button/File_play_pressed.png" inactive="Interface/Button/File_play_normal.png" length="infinite" />
+                            </effect>
+                        </image> 
+
+<!-- Rec Cache (Abstandshalter) -->                        
+                        <panel id="rec_cache_1" width="100%" height="3px" valign="bottom">
+                        </panel>                         
+ <!--rec-->                        
+                        <image id="rec" filename="Interface/Button/Rec_normal.png" visibleToMouse="true" align="center" inset="1px" filter="true" >
+                        <!-- <interact onClick="startGame(test)" /> -->
+                            <effect>
+                                <onHover name="changeImage" active="Interface/Button/Rec_select.png" inactive="Interface/Button/Rec_normal.png" />
+                                <onClick name="changeImage" active="Interface/Button/Rec_pressed.png" inactive="Interface/Button/Rec_normal.png" length="infinite" />
+                            </effect>
+                        </image>
+                        
+<!-- Rec Cache (Abstandshalter) -->                        
+                        <panel id="rec_cache_2" width="100%" height="37px" valign="bottom">
+                        </panel>                            
+                    </panel>
+                  
+<!-- Cache unten (Abstandshalter) -->
+                    <panel id="File_play_cache_unten" width="100%" height="5%" valign="bottom">
+                    </panel>   
+                </panel>
             </panel>
             
 <!-- ******************* -->
@@ -167,53 +194,79 @@
                 </panel>
                 
 <!--File_text_1-->
-                <panel id="File_text_cache" width="120px" height="40px" childLayout="center" backgroundImage="Interface/Button/File_text.png" > 
+                <panel id="File_text_1" width="120px" height="40px" childLayout="center" backgroundImage="Interface/Button/File_text.png" > 
                 <text font="aurulent-sans-16.fnt" color="#ffff" text="  Bewegung_1.bvh" align="left"  />                                           
                 </panel>
                 
 <!--File_text_2-->
-                <panel id="File_text_cache" width="120px" height="40px" childLayout="center" backgroundImage="Interface/Button/File_text.png" > 
+                <panel id="File_text_2" width="120px" height="40px" childLayout="center" backgroundImage="Interface/Button/File_text.png" > 
                 <text font="aurulent-sans-16.fnt" color="#ffff" text="  Bewegung_2.bvh" align="left" />                                           
                 </panel>   
 
 <!--File_text_3-->
-                <panel id="File_text_cache" width="120px" height="40px" childLayout="center" backgroundImage="Interface/Button/File_text.png" > 
+                <panel id="File_text_3" width="120px" height="40px" childLayout="center" backgroundImage="Interface/Button/File_text.png" > 
                 <text font="aurulent-sans-16.fnt" color="#ffff" text="  Bewegung_3.bvh" align="left" />                                           
                 </panel>  
                 
 <!--File_text_4-->
-                <panel id="File_text_cache" width="120px" height="40px" childLayout="center" backgroundImage="Interface/Button/File_text.png" > 
-                <text font="aurulent-sans-16.fnt" color="#ffff" text="  Bewegung_4.bvh" align="left" valign="center" />                                           
+                <panel id="File_text_4" width="120px" height="40px" childLayout="center" backgroundImage="Interface/Button/File_text.png" > 
+                <text font="aurulent-sans-16.fnt" color="#ffff" text="  Bewegung_4.bvh" align="left" />                                           
                 </panel> 
                 
 <!--File_text_5-->
-                <panel id="File_text_cache" width="120px" height="40px" childLayout="center" backgroundImage="Interface/Button/File_text.png" > 
+                <panel id="File_text_5" width="120px" height="40px" childLayout="center" backgroundImage="Interface/Button/File_text.png" > 
                 <text font="aurulent-sans-16.fnt" color="#ffff" text="  Bewegung_5.bvh" align="left" />                                           
                 </panel>
+       
+         
+<!-- *************** -->
+<!--  REC_PLAY_TEXT  -->
+<!-- *************** -->
+                        
+                <panel id="panel_text_rec_play" width="100%" childLayout="vertical">
+                    
+<!-- Cache mitte (Abstandshalter) -->
+                    <panel id="File_text_rec_play_cache_mitte" width="100%" >
+                    </panel>
+                    
+                    
+                        
+<!--rec_play_text-->
+                        <panel id="File_text_rec_play" width="120px" height="40px" childLayout="center" backgroundImage="Interface/Button/File_text.png" > 
+                        <text font="aurulent-sans-16.fnt" color="#ffff" text="  Aufnahme_1.bvh" align="left" />                                           
+                        </panel>
+                   
+                        
+ <!--rec_text-->                        
+                        <panel id="File_text_rec_play" width="120px" height="80px" childLayout="vertical" backgroundImage="Interface/Button/File_text_rec.png" > 
+                            <panel id="TC_cache" width="100%" height="15px" ></panel>
+                            <text id="TimeCount" font="aurulent-sans-16.fnt" color="#ffff" text="  00:00:00" align="left" />
+                            <panel id="Frame_cache" width="100%" height="5px" ></panel>
+                            <text id="FrameCount" font="aurulent-sans-16.fnt" color="#ffff" text="  F:400 / 750" align="left" />  
+                        </panel>
+                        
                 
-<!-- Cache mitte (Abstandshalter) -->               
-                <panel id="File_text_cache_mitte" width="100%" height="50%" > 
-                </panel>
+                  
+<!-- Cache unten (Abstandshalter) -->
+                    <panel id="File_play_cache_unten" width="100%" height="5%" valign="bottom" >
+                    </panel>      
                 
-<!-- ***************** -->
-<!--  REC_PLAY_BUTTON  -->
-<!-- ***************** -->
-<!--rec_text-->
-                <panel id="File_text_cache" width="120px" height="40px" childLayout="center" backgroundImage="Interface/Button/File_text.png" > 
-                <text font="aurulent-sans-16.fnt" color="#ffff" text="  Aufnahme_1.bvh" align="left" />                                           
                 </panel>
             </panel>
+            
+
+
 
 <!-- ******* -->
 <!--  MITTE  -->
 <!-- ******* -->
              <panel id="panel_right"  height="100%" align="right" childLayout="horizontal"  >
-                 <panel id="links" width="80%" height="100%"></panel>
+                 <panel id="links"  height="100%"></panel>
                  
 <!-- ******** -->
 <!--  RECHTS  -->
 <!-- ******** -->                 
-                 <panel id="rechts" width="20%" height="100%" childLayout="vertical">
+                 <panel id="rechts" width="150px" height="100%" childLayout="vertical">
 
 <!-- Cache oben (Abstandshalter) -->                      
                     <panel id="panel_top_right1" width="100%" height="5%" ></panel>
@@ -230,17 +283,25 @@
                     <panel align="left" width="100%" height="20px" ></panel>
 
                     <panel childLayout="vertical" align="left" width="100%" height="100px" >                    
-<!-- cam_hight --> 
+                        
+                        <panel id="File_text_rec_play" width="120px" height="80px" align="center" 
+                        childLayout="vertical" backgroundImage="Interface/Button/Cam.png" >   
+                        </panel>
+<!-- cam_height --> 
                         <text font="aurulent-sans-16.fnt" color="#ffff" text="height" align="center" /> 
                         <control id="height" name="horizontalSlider" worldMax="800.0" worldPageSize="100.0" initial="0.0" buttonStepSize="10.0" pageStepSize="100.0" />                  
- 
 <!-- cam_zoom -->
                         <text font="aurulent-sans-16.fnt" color="#ffff" text="zoom" align="center" />
-                        <control id="zoom" name="horizontalSlider" worldMax="100" worldPageSize="50.0" initial="0.0" buttonStepSize="10.0" pageStepSize="100.0" />
-                        
+                        <control id="zoom" name="horizontalSlider" worldMax="100" worldPageSize="50.0" initial="0.0" buttonStepSize="10.0" pageStepSize="100.0" />       
 <!-- cam_tilt -->   
                         <text font="aurulent-sans-16.fnt" color="#ffff" text="tilt" align="center" />
                         <control id="tilt" name="horizontalSlider" worldMax="200" worldPageSize="100" initial="0.0" buttonStepSize="10" pageStepSize="100" />
+
+                        <panel align="left" width="100%" height="20px" ></panel>
+                        
+                        <panel id="File_text_rec_play" width="120px" height="80px" align="center" 
+                        childLayout="vertical" backgroundImage="Interface/Button/Doll.png" >   
+                        </panel>
 <!-- turn_pos -->
                         <text font="aurulent-sans-16.fnt" color="#ffff" text="turn" align="center" />
                         <control id="turn" name="horizontalSlider" worldMax="360" worldPageSize="100" initial="0.0" buttonStepSize="10" pageStepSize="360" />
