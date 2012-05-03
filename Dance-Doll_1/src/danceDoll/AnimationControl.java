@@ -21,7 +21,6 @@ public class AnimationControl {
     private AnimControl control;
     private AnimChannel channel;
     private SkeletonDebugger skeletonDebug;
-    private String animationName;
 
     /**
      * Creats an Animation by using the SkelettonDebog & AnimControl from the Model
@@ -31,38 +30,43 @@ public class AnimationControl {
         this.m = m;
         skeletonDebug = m.skeletonDebug();
         control = m.doll.getControl(AnimControl.class);
+        channel = control.createChannel();
     }
 
     /**
      * Creats from the BVH-List a HashMap and put it onto the AnimControl from the Model
      * @param bvh BVH-List
      */
-    public void createAnimation(BVHController bvh) {
+    public void pushAnimation(BVHController bvh) {
         Mesh[] meshes = new Mesh[2];
         meshes[0] = skeletonDebug.getWires();
         bvh.createBindPose(skeletonDebug.getWires());
         meshes[1] = skeletonDebug.getPoints();
         bvh.createBindPose(skeletonDebug.getPoints());
 
-        animationName = bvh.data.getAnimation().getName();
+        String animationName = bvh.data.getAnimation().getName();
 
         // Hashmap mit BVH-Daten erstellen
-        HashMap<String, Animation> anims = new HashMap<String, Animation>();
+        HashMap<String, Animation> anims = new HashMap<String, Animation>();          
         anims.put(animationName, bvh.data.getAnimation());
 
-        // AnimControl laden und HashMap übergeben
-        AnimControl ctrl = m.doll.getControl(AnimControl.class);
-        ctrl.setAnimations(anims);
-
-        channel = ctrl.createChannel();
+        // HashMap übergeben
+        control.addAnim(bvh.data.getAnimation());
     }
 
     /**
      * Method starts Animation with given Speed
      * @param speed 
      */
-    public void startAnimation(float speed) {
-        channel.setAnim(animationName);
-        channel.setSpeed(speed);
+    public void startAnimation(String name) {
+        channel.setAnim(name);
+    }
+    
+    /**
+     * Removes the Animation from the Animationchannel
+     * @param name Name of the Animation to remove
+     */
+    public void popAnimation(String name) {
+        control.removeAnim(control.getAnim(name));
     }
 }
