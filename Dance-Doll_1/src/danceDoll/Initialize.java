@@ -95,9 +95,9 @@ public class Initialize extends DanceDoll {
         AnimationControl ani = new AnimationControl(m);
         
         ani.pushAnimation(bvh1);
-        ani.startAnimation(bvh1.anim.getName());
+       // ani.startAnimation(bvh1.data.getAnimation().getName());
 
-        ani.pushAnimation(bvh1);
+        //ani.pushAnimation(bvh1);
         ani.pushAnimation(bvh2);
         
         ani.startAnimation(bvh2.data.getAnimation().getName());
