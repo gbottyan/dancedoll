@@ -44,7 +44,7 @@ public class DanceDoll extends SimpleApplication {
         settings.setResolution(1000, 600);
         settings.setFrameRate(40);
         settings.setTitle("Dance Doll Alpha V. 0.2");
-        settings.setSamples(2); // Kantenglättung
+        settings.setSamples(0); // Kantenglättung
         settings.setVSync(true);
         setSettings(settings);
         super.start(contextType);
