@@ -3,7 +3,7 @@
         <bone id="0" name="Joint1">
             <position x="0.185046" y="0.51196" z="0" />
             <rotation angle="0">
-                <axis x="0" y="0" z="0" />
+                <axis x="1" y="0" z="0" />
             </rotation>
         </bone>
         <bone id="1" name="Joint2">

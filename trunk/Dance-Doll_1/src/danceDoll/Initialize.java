@@ -26,8 +26,6 @@ import GuiController.GuiController;
 public class Initialize extends DanceDoll {
 
     protected DanceDoll danceDoll;
-    //protected Node rootNode = new Node("Root Node");
-    //protected Node guiNode = new Node("Gui Node"); 
     protected Skeleton skelett;
     private NiftyJmeDisplay niftyDisplay;
 
@@ -75,8 +73,7 @@ public class Initialize extends DanceDoll {
         guiNode.setQueueBucket(Bucket.Gui);
         guiNode.setCullHint(CullHint.Never);
         guiViewPort.attachScene(guiNode);
-        
-        
+
        
         niftyDisplay = new NiftyJmeDisplay(assetManager, inputManager, audioRenderer, guiViewPort);
         Nifty nifty = niftyDisplay.getNifty();
@@ -85,15 +82,21 @@ public class Initialize extends DanceDoll {
 
         // Model laden
         Model m = sc.getModel();
-        skelett = m.getSkeletton();
-
+        skelett = m.getSkeletton();      
+        
         // BVH- Einlesen
-        BVHController bvh = new BVHController(assetManager, "Animations/Loop.bvh");
-
+        BVHController bvh1 = new BVHController(assetManager, "Animations/Loop.bvh");        
+        BVHController bvh2 = new BVHController(assetManager, "Animations/01.bvh");        
+        BVHController bvh3 = new BVHController(assetManager, "Animations/Loop.bvh");        
+        BVHController bvh4 = new BVHController(assetManager, "Animations/Loop.bvh");        
+        BVHController bvh5 = new BVHController(assetManager, "Animations/Loop.bvh");        
+        
         // Animation laden & starten
         AnimationControl ani = new AnimationControl(m);
-        ani.createAnimation(bvh);
-        ani.startAnimation(1);
+        ani.pushAnimation(bvh1);
+        ani.pushAnimation(bvh2);
+        
+        ani.startAnimation(bvh2.data.getAnimation().getName());
     }
     
     public DanceDoll getDoll() {

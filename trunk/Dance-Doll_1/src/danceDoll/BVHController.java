@@ -69,7 +69,6 @@ public class BVHController implements AnimEventListener {
                 in.close();
             }
         }
-
     }
 
     /**

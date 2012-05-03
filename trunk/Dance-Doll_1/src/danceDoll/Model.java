@@ -70,5 +70,5 @@ public class Model {
 
     public SkeletonDebugger skeletonDebug() {
         return skeletonDebug;
-    }
+    } 
 }
