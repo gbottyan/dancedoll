@@ -93,10 +93,15 @@ public class Initialize extends DanceDoll {
         
         // Animation laden & starten
         AnimationControl ani = new AnimationControl(m);
+        
+        ani.pushAnimation(bvh1);
+        ani.startAnimation(bvh1.anim.getName());
+
         ani.pushAnimation(bvh1);
         ani.pushAnimation(bvh2);
         
         ani.startAnimation(bvh2.data.getAnimation().getName());
+
     }
     
     public DanceDoll getDoll() {
