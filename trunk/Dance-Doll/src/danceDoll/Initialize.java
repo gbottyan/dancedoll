@@ -83,7 +83,7 @@ public class Initialize extends DanceDoll {
         skelett = m.getSkeletton();
 
         // BVH- Einlesen
-        BVHController bvh = new BVHController(assetManager, "Animations/bvh-test-13.bvh");
+        BVHController bvh = new BVHController(assetManager, "Animations/bvh-test-01.bvh");
 
         // Animation laden & starten
         AnimationControl ani = new AnimationControl(m);
