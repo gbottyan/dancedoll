@@ -100,7 +100,7 @@ public class Initialize extends DanceDoll {
         //ani.pushAnimation(bvh1);
         ani.pushAnimation(bvh2);
         
-        ani.startAnimation(bvh2.data.getAnimation().getName());
+        ani.startAnimation(bvh1.data.getAnimation().getName());
 
     }
     
