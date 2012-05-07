@@ -82,11 +82,11 @@ public class Initialize extends DanceDoll {
 
         // Model laden
         Model m = sc.getModel();
-        skelett = m.getSkeletton();      
+        skelett = m.getSkeletton();   
         
         // BVH- Einlesen
-        BVHController bvh1 = new BVHController(assetManager, "Animations/Loop.bvh");        
-        BVHController bvh2 = new BVHController(assetManager, "Animations/01.bvh");        
+        BVHController bvh1 = new BVHController(assetManager, "Animations/00_Fail.bvh");        
+        BVHController bvh2 = new BVHController(assetManager, "Animations/06_Stayin_Alive.bvh");        
         BVHController bvh3 = new BVHController(assetManager, "Animations/Loop.bvh");        
         BVHController bvh4 = new BVHController(assetManager, "Animations/Loop.bvh");        
         BVHController bvh5 = new BVHController(assetManager, "Animations/Loop.bvh");        
@@ -97,11 +97,9 @@ public class Initialize extends DanceDoll {
         ani.pushAnimation(bvh1);
        // ani.startAnimation(bvh1.data.getAnimation().getName());
 
-        //ani.pushAnimation(bvh1);
         ani.pushAnimation(bvh2);
-        
-        ani.startAnimation(bvh1.data.getAnimation().getName());
-
+        if(bvh1.data != null)
+            ani.startAnimation(bvh1.data.getAnimation().getName());
     }
     
     public DanceDoll getDoll() {

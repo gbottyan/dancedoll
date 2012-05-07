@@ -56,20 +56,25 @@ public class BVHController implements AnimEventListener {
     public BVHController(AssetManager assetManager, String url) throws IOException {
         this.assetManager = assetManager;
         URL bvhFile = DanceDoll.class.getClassLoader().getResource(url);
-        fileName = bvhFile.getFile();
-        FileInputStream fstream = new FileInputStream(bvhFile.getFile());
-
-        InputStream in = bvhFile.openStream();
         try {
-            scan = new Scanner(in);
-            scan.useLocale(Locale.US);
-            loadFromScanner();
-        } finally {
-            if (in != null) {
-                in.close();
+            fileName = bvhFile.getFile();
+            FileInputStream fstream = new FileInputStream(bvhFile.getFile());
+
+            InputStream in = bvhFile.openStream();
+            try {
+                scan = new Scanner(in);
+                scan.useLocale(Locale.US);
+                loadFromScanner();
+            } finally {
+                if (in != null) {
+                    in.close();
+                }
             }
+        } catch(Exception ex) {
+            this.data = null;
+            System.out.println("Die Datei \""+url+"\" wurde nicht gefunden!");
         }
-    }
+    } 
 
     /**
      * Read all Parameter for one Bone
