@@ -1,0 +1,202 @@
+material blinn1SG_001
+{
+	technique
+	{
+		pass
+		{
+			ambient 0 0 0 1
+			diffuse 0.24 0.11 0.03 1
+		}
+
+	}
+
+}
+
+
+
+material blinn4SG_001
+{
+	technique
+	{
+		pass
+		{
+			ambient 0 0 0 1
+			diffuse 0.71 0.03 0.71 1
+		}
+
+	}
+
+}
+
+
+
+material blinn3SG_001
+{
+	technique
+	{
+		pass
+		{
+			ambient 0 0 0 1
+			diffuse 0 0 0 1
+		}
+
+	}
+
+}
+
+
+
+material blinn7SG_001
+{
+	technique
+	{
+		pass
+		{
+			ambient 0 0 0 1
+			diffuse 0.34 0.34 0.34 1
+		}
+
+	}
+
+}
+
+
+
+material blinn8SG_001
+{
+	technique
+	{
+		pass
+		{
+			ambient 0 0 0 1
+		}
+
+	}
+
+}
+
+
+
+material blinn2SG_001
+{
+	technique
+	{
+		pass
+		{
+			ambient 0 0 0 1
+			diffuse 0.9 0.64 0 1
+		}
+
+	}
+
+}
+
+
+
+material blinn5SG_001
+{
+	technique
+	{
+		pass
+		{
+			ambient 0 0 0 1
+		}
+
+	}
+
+}
+
+
+
+material blinn6SG_001
+{
+	technique
+	{
+		pass
+		{
+			ambient 0 0 0 1
+			diffuse 0 0 0 1
+		}
+
+	}
+
+}
+
+
+
+material blinn9SG_001
+{
+	technique
+	{
+		pass
+		{
+			ambient 0 0 0 1
+			diffuse 0.57 0.05 0 1
+		}
+
+	}
+
+}
+
+
+
+material blinn10SG_001
+{
+	technique
+	{
+		pass
+		{
+			ambient 0 0 0 1
+		}
+
+	}
+
+}
+
+
+
+material blinn11SG_001
+{
+	technique
+	{
+		pass
+		{
+			ambient 0 0 0 1
+			diffuse 0 0 0 1
+		}
+
+	}
+
+}
+
+
+
+material phong2SG_001
+{
+	technique
+	{
+		pass
+		{
+			ambient 0 0 0 1
+			diffuse 1 0.81 0.37 1
+		}
+
+	}
+
+}
+
+
+
+material blinn12SG_001
+{
+	technique
+	{
+		pass
+		{
+			ambient 0 0 0 1
+			diffuse 0.14 0.01 0 1
+		}
+
+	}
+
+}
