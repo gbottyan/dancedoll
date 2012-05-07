@@ -1,0 +1,216 @@
+material blinn13
+{
+	technique
+	{
+		pass
+		{
+			ambient 0 0 0 1
+			diffuse 0.24 0.11 0.03 1
+			specular 0.262074 0.262074 0.262074 1 89.6
+		}
+
+	}
+
+}
+
+
+
+material blinn12SG_001
+{
+	technique
+	{
+		pass
+		{
+			ambient 0 0 0 1
+			diffuse 0.14 0.01 0 1
+		}
+
+	}
+
+}
+
+
+
+material phong3
+{
+	technique
+	{
+		pass
+		{
+			ambient 0 0 0 1
+			diffuse 1 0.81 0.37 1
+			specular 1 1 1 1 74.3636
+		}
+
+	}
+
+}
+
+
+
+material blinn11SG_001
+{
+	technique
+	{
+		pass
+		{
+			ambient 0 0 0 1
+			diffuse 0 0 0 1
+		}
+
+	}
+
+}
+
+
+
+material blinn16
+{
+	technique
+	{
+		pass
+		{
+			ambient 0 0 0 1
+			specular 0 0 0 1 111.229
+		}
+
+	}
+
+}
+
+
+
+material blinn14
+{
+	technique
+	{
+		pass
+		{
+			ambient 0 0 0 1
+			diffuse 0.9 0.64 0 1
+			specular 0.15172 0.15172 0.15172 1 117.408
+		}
+
+	}
+
+}
+
+
+
+material blinn15
+{
+	technique
+	{
+		pass
+		{
+			ambient 0 0 0 1
+			diffuse 0.57 0.05 0 1
+			specular 0 0 0 1 128
+		}
+
+	}
+
+}
+
+
+
+material blinn5SG_001
+{
+	technique
+	{
+		pass
+		{
+			ambient 0 0 0 1
+		}
+
+	}
+
+}
+
+
+
+material blinn6SG_001
+{
+	technique
+	{
+		pass
+		{
+			ambient 0 0 0 1
+			diffuse 0 0 0 1
+		}
+
+	}
+
+}
+
+
+
+material blinn17
+{
+	technique
+	{
+		pass
+		{
+			ambient 0 0 0 1
+			diffuse 0.34 0.34 0.34 1
+			specular 0.5 0.5 0.5 1 89.6
+		}
+
+	}
+
+}
+
+
+
+material blinn18
+{
+	technique
+	{
+		pass
+		{
+			ambient 0 0 0 1
+			specular 0.2 0.2 0.2 1 128
+		}
+
+	}
+
+}
+
+
+
+material blinn19
+{
+	technique
+	{
+		 pass
+                 {
+                            scene_blend alpha_blend
+                            depth_write off
+ 
+                            texture_unit
+                            {
+                                        colour_op_ex source1 src_manual src_current 0.71 0.03 0.71
+                                        alpha_op_ex source1 src_manual src_current 0.5
+                            }
+                }
+
+	}
+
+}
+
+
+
+material phong4
+{
+	technique
+	{
+		pass
+		{
+			ambient 0 0 0 1
+			diffuse 0 0 0 1
+			specular 1 1 1 1 2.56
+		}
+
+	}
+
+}
