@@ -33,9 +33,25 @@ public class DanceDoll extends SimpleApplication {
     public static void main(String[] args) {
         // Nur Warnungen ausgeben
         logger.getLogger("").setLevel(Level.WARNING);
+       
+
+
+        
         DanceDoll app = new DanceDoll();
+        
         app.setShowSettings(false);
-        app.start();
+        
+        try {
+            app.start();
+        } catch(Exception ex) {
+            System.out.println(ex.getMessage()+" cc");
+            app.destroy();
+            throw new RuntimeException(ex);
+        }
+
+        ExceptionHandler err = new ExceptionHandler(app);
+        
+        //err.setUncaughtExceptionHandler(new ExceptionHandler(app));
     }
 
     @Override

@@ -64,7 +64,7 @@ public class Scenery extends DanceDoll {
         PointLight bulb = new PointLight();
         bulb.setColor(ColorRGBA.White);
         bulb.setRadius(20f);
-        bulb.setPosition(new Vector3f(0f, 2f, 10f));
+        bulb.setPosition(new Vector3f(0f, 0f, -5f));
         mainNode.addLight(bulb);
 
         return mainNode;

@@ -38,20 +38,27 @@ public class AnimationControl {
      * @param bvh BVH-List
      */
     public void pushAnimation(BVHController bvh) {
-        Mesh[] meshes = new Mesh[2];
-        meshes[0] = skeletonDebug.getWires();
-        bvh.createBindPose(skeletonDebug.getWires());
-        meshes[1] = skeletonDebug.getPoints();
-        bvh.createBindPose(skeletonDebug.getPoints());
+        if(bvh.data != null) {
+            // Anzahl der Knochen überprüfen
+            if(this.m.getSkeletton().getBoneCount() >= bvh.data.getSkeleton().getBoneCount()) {
+                Mesh[] meshes = new Mesh[2];
+                meshes[0] = skeletonDebug.getWires();
+                bvh.createBindPose(skeletonDebug.getWires());
+                meshes[1] = skeletonDebug.getPoints();
+                bvh.createBindPose(skeletonDebug.getPoints());
 
-        String animationName = bvh.data.getAnimation().getName();
+                String animationName = bvh.data.getAnimation().getName();
 
-        // Hashmap mit BVH-Daten erstellen
-        HashMap<String, Animation> anims = new HashMap<String, Animation>();          
-        anims.put(animationName, bvh.data.getAnimation());
+                // Hashmap mit BVH-Daten erstellen
+                HashMap<String, Animation> anims = new HashMap<String, Animation>();          
+                anims.put(animationName, bvh.data.getAnimation());
 
-        // HashMap übergeben
-        control.addAnim(bvh.data.getAnimation());
+                // HashMap übergeben
+                control.addAnim(bvh.data.getAnimation());
+            } else {
+                   System.out.println("Das BVH-Skelett \""+bvh.data.getAnimation().getName().toString()+"\" hat mehr Knochen als das Model-Skelett und kann von daher nicht benutzt werden!");
+            }
+        }
     }
 
     /**
@@ -59,7 +66,11 @@ public class AnimationControl {
      * @param speed 
      */
     public void startAnimation(String name) {
-        channel.setAnim(name);
+        if(control.getAnim(name) != null) {
+            channel.setAnim(name);
+        } else {
+            System.out.println("Die gewählte Animation \""+name+"\" wurde nicht gefunden!");
+        }
     }
     
     /**
