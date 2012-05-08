@@ -19,7 +19,7 @@
       
 <!-- Hintergrund-Layer -->
         <layer id="hintergrund" childLayout="vertical">
-            <panel id="jmndc" width="100%" heigth="100%" backgroundImage= "Interface/1280x768_Hintergrund.png">
+            <panel width="100%" heigth="100%" backgroundImage= "Interface/1280x768_Hintergrund.png">
             </panel>
         </layer>
   
@@ -27,8 +27,7 @@
         <layer id="vordergrund" childLayout="horizontal">
        
 <!-- Cache links (Abstandshalter) -->
-            <panel id="screen_left_cache" width="3%" height="100%"> 
-            </panel>
+            <panel width="3%" height="100%"></panel>
 
 <!-- ******************* -->
 <!--  FILE_LOAD_BUTTONS  -->
@@ -36,8 +35,7 @@
             <panel id="panel_File_load" width="42px" height="100%" childLayout="vertical" >
                 
 <!-- Cache oben (Abstandshalter) -->
-                <panel id="File_load_cache" width="100%" height="5%" >
-                </panel>    
+                <panel width="100%" height="5%" ></panel>    
  
 <!-- File_load_1 -->        
                 <image id="File_load_1" filename="Interface/Button/File_load_normal.png" visibleToMouse="true" align="center" inset="1px" filter="true" >
@@ -92,8 +90,7 @@
             <panel id="panel_File_play" width="42px" height="100%" childLayout="vertical" >
                 
 <!-- Cache oben (Abstandshalter) -->               
-                <panel id="File_play_cache_oben" width="100%" height="5%" > 
-                </panel>
+                <panel width="100%" height="5%" ></panel>
      
 <!--File_play_1-->
                 <image id="File_play_1" filename="Interface/Button/File_play_normal.png" visibleToMouse="true" align="center" inset="1px" filter="true" >
@@ -123,7 +120,7 @@
                 </image>
 
 <!--File_play_4-->
-                <image id="File_play_1" filename="Interface/Button/File_play_normal.png" visibleToMouse="true" align="center" inset="1px" filter="true" >
+                <image id="File_play_4" filename="Interface/Button/File_play_normal.png" visibleToMouse="true" align="center" inset="1px" filter="true" >
                     <!-- <interact onClick="startGame(test)" /> -->
                     <effect>
                         <onHover name="changeImage" active="Interface/Button/File_play_select.png" inactive="Interface/Button/File_play_normal.png" />
@@ -147,10 +144,9 @@
                 <panel id="panel_rec_play" width="100%" childLayout="vertical" >
 
 <!-- Cache mitte (Abstandshalter) -->               
-                    <panel id="File_play_cache_mitte_" width="100%"> 
-                    </panel>
+                    <panel width="100%"></panel>
                 
-                    <panel id="File_rec_play" width="100%" childLayout="vertical">
+                    <panel width="100%" childLayout="vertical">
 
 <!--rec_play-->
                         <image id="rec_play" filename="Interface/Button/File_play_normal.png" visibleToMouse="true" align="center" inset="1px" filter="true" >
@@ -162,8 +158,7 @@
                         </image> 
 
 <!-- Rec Cache (Abstandshalter) -->                        
-                        <panel id="rec_cache_1" width="100%" height="3px" valign="bottom">
-                        </panel>                         
+                        <panel width="100%" height="3px" valign="bottom"> </panel>                         
  <!--rec-->                        
                         <image id="rec" filename="Interface/Button/Rec_normal.png" visibleToMouse="true" align="center" inset="1px" filter="true" >
                         <!-- <interact onClick="startGame(test)" /> -->
@@ -174,24 +169,21 @@
                         </image>
                         
 <!-- Rec Cache (Abstandshalter) -->                        
-                        <panel id="rec_cache_2" width="100%" height="37px" valign="bottom">
-                        </panel>                            
+                        <panel width="100%" height="37px" valign="bottom"></panel>                            
                     </panel>
                   
 <!-- Cache unten (Abstandshalter) -->
-                    <panel id="File_play_cache_unten" width="100%" height="5%" valign="bottom">
-                    </panel>   
+                    <panel width="100%" height="5%" valign="bottom"></panel>   
                 </panel>
             </panel>
             
 <!-- ******************* -->
 <!--  File_TEXT_IMAGES  -->
 <!-- ******************* -->
-            <panel id="panel_File_play" width="120px" height="100%" childLayout="vertical" >
+            <panel id="panel_Text" width="120px" height="100%" childLayout="vertical" >
                 
 <!-- Cache oben (Abstandshalter) -->               
-                <panel id="File_text_cache" width="100%" height="5%" > 
-                </panel>
+                <panel  width="100%" height="5%" ></panel>
                 
 <!--File_text_1-->
                 <panel id="File_text_1" width="120px" height="40px" childLayout="center" backgroundImage="Interface/Button/File_text.png" > 
@@ -226,42 +218,33 @@
                 <panel id="panel_text_rec_play" width="100%" childLayout="vertical">
                     
 <!-- Cache mitte (Abstandshalter) -->
-                    <panel id="File_text_rec_play_cache_mitte" width="100%" >
-                    </panel>
-                    
-                    
+                    <panel width="100%" ></panel>
                         
 <!--rec_play_text-->
                         <panel id="File_text_rec_play" width="120px" height="40px" childLayout="center" backgroundImage="Interface/Button/File_text.png" > 
                         <text font="aurulent-sans-16.fnt" color="#ffff" text="  Aufnahme_1.bvh" align="left" />                                           
                         </panel>
-                   
                         
  <!--rec_text-->                        
-                        <panel id="File_text_rec_play" width="120px" height="80px" childLayout="vertical" backgroundImage="Interface/Button/File_text_rec.png" > 
+                        <panel id="File_text_rec" width="120px" height="80px" childLayout="vertical" backgroundImage="Interface/Button/File_text_rec.png" > 
                             <panel id="TC_cache" width="100%" height="15px" ></panel>
                             <text id="TimeCount" font="aurulent-sans-16.fnt" color="#ffff" text="  00:00:00" align="left" />
                             <panel id="Frame_cache" width="100%" height="5px" ></panel>
                             <text id="FrameCount" font="aurulent-sans-16.fnt" color="#ffff" text="  F:400 / 750" align="left" />  
                         </panel>
                         
-                
-                  
 <!-- Cache unten (Abstandshalter) -->
-                    <panel id="File_play_cache_unten" width="100%" height="5%" valign="bottom" >
-                    </panel>      
+                    <panel width="100%" height="5%" valign="bottom" ></panel>      
                 
                 </panel>
             </panel>
             
 
-
-
 <!-- ******* -->
 <!--  MITTE  -->
 <!-- ******* -->
-             <panel id="panel_right"  height="100%" align="right" childLayout="horizontal"  >
-                 <panel id="links"  height="100%"></panel>
+             <panel id="mitte"  height="100%" align="right" childLayout="horizontal"  >
+                 <panel height="100%"></panel>
                  
 <!-- ******** -->
 <!--  RECHTS  -->
@@ -269,15 +252,15 @@
                  <panel id="rechts" width="150px" height="100%" childLayout="vertical">
 
 <!-- Cache oben (Abstandshalter) -->                      
-                    <panel id="panel_top_right1" width="100%" height="5%" ></panel>
+                    <panel width="100%" height="5%" ></panel>
                     
 <!--home-->
                     <image id="home" filename="Interface/Button/home_normal.png" visibleToMouse="true" align="center" inset="1px" filter="true" >
-                        <interact onClick="home()" />
                         <effect>
                             <onHover name="changeImage" active="Interface/Button/home_select.png" inactive="Interface/Button/home_normal.png" />
                             <onClick name="changeImage" active="Interface/Button/home_pressed.png" inactive="Interface/Button/home_normal.png" length="infinite" />
                         </effect>
+                        <interact onClick="home()" />
                     </image>                 
                     
                     <panel align="left" width="100%" height="20px" ></panel>
@@ -326,7 +309,7 @@
             </panel>
 
 <!-- Cache rechts (Abstandshalter) -->
-            <panel id="screen_right_cache" width="3%" height="100%" childLayout="vertical"></panel>
+            <panel width="3%" height="100%" childLayout="vertical"></panel>
                     
      </layer>
   </screen>  
