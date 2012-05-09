@@ -85,11 +85,11 @@ public class Initialize extends DanceDoll {
         skelett = m.getSkeletton();   
         
         // BVH- Einlesen
-        BVHController bvh1 = new BVHController(assetManager, "Animations/00_Fail.bvh");        
-        BVHController bvh2 = new BVHController(assetManager, "Animations/06_Stayin_Alive.bvh");        
-        BVHController bvh3 = new BVHController(assetManager, "Animations/Loop.bvh");        
-        BVHController bvh4 = new BVHController(assetManager, "Animations/Loop.bvh");        
-        BVHController bvh5 = new BVHController(assetManager, "Animations/Loop.bvh");        
+        BVHController bvh1 = new BVHController(assetManager, "Animations/01_1_Kopf_kratzen.bvh");        
+        BVHController bvh2 = new BVHController(assetManager, "Animations/02_Grundmove.bvh");        
+        BVHController bvh3 = new BVHController(assetManager, "Animations/03_Schulterzucken.bvh");        
+        BVHController bvh4 = new BVHController(assetManager, "Animations/04_Winken.bvh");        
+        BVHController bvh5 = new BVHController(assetManager, "Animations/12_Cooler_shaker.bvh");        
         
         // Animation laden & starten
         AnimationControl ani = new AnimationControl(m);
