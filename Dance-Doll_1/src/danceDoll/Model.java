@@ -35,7 +35,7 @@ public class Model {
     public Node getModel() {
         doll = new Node("doll");
 
-        doll = (Node) assetManager.loadModel("Models/Stu/stu2.j3o");
+        doll = (Node) assetManager.loadModel("Models/Stu/stu.j3o");
         skeletonDebug = new SkeletonDebugger("skeleton", getSkeletton());
         Material mat = new Material(assetManager, "Common/MatDefs/Misc/Unshaded.j3md");
         mat.getAdditionalRenderState().setWireframe(true);
