@@ -28,6 +28,7 @@ public class Initialize extends DanceDoll {
     protected DanceDoll danceDoll;
     protected Skeleton skelett;
     private NiftyJmeDisplay niftyDisplay;
+    private AnimationControl ani;
 
     public Initialize(DanceDoll dd, AppSettings settings) throws IOException {
         danceDoll = dd;
@@ -77,7 +78,7 @@ public class Initialize extends DanceDoll {
        
         niftyDisplay = new NiftyJmeDisplay(assetManager, inputManager, audioRenderer, guiViewPort);
         Nifty nifty = niftyDisplay.getNifty();
-        niftyDisplay.getNifty().fromXml("Interface/Gui.xml","start", new GuiController(nifty,dd));
+        niftyDisplay.getNifty().fromXml("Interface/Gui.xml","start", new GuiController(nifty,dd, this));
         guiViewPort.addProcessor(niftyDisplay);
 
         // Model laden
@@ -91,15 +92,14 @@ public class Initialize extends DanceDoll {
         BVHController bvh4 = new BVHController(assetManager, "Animations/04_Winken.bvh");        
         BVHController bvh5 = new BVHController(assetManager, "Animations/12_Cooler_shaker.bvh");        
         
-        // Animation laden & starten
-        AnimationControl ani = new AnimationControl(m);
+        // AnimationCpntrol erstellen
+        ani = new AnimationControl(m);
         
         ani.pushAnimation(bvh1);
-       // ani.startAnimation(bvh1.data.getAnimation().getName());
 
         ani.pushAnimation(bvh2);
-        if(bvh1.data != null)
-            ani.startAnimation(bvh1.data.getAnimation().getName());
+        if(bvh1.chkBVH())
+            ani.startAnimation(bvh1.getBVHName());
     }
     
     public DanceDoll getDoll() {
@@ -124,4 +124,13 @@ public class Initialize extends DanceDoll {
     public Node getGUINode() {
         return guiNode;
     }
+    
+    /**
+     * 
+     * @return the Animation Controller
+     */
+    public AnimationControl getAnimationControl() {
+        return this.ani;
+    }
+    
 }

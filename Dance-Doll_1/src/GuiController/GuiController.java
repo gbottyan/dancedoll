@@ -12,6 +12,7 @@ import com.jme3.renderer.Camera;
 import danceDoll.AnimationControl;
 import danceDoll.BVHController;
 import danceDoll.DanceDoll;
+import danceDoll.Initialize;
 import de.lessvoid.nifty.Nifty;
 import de.lessvoid.nifty.NiftyEventSubscriber;
 import de.lessvoid.nifty.controls.SliderChangedEvent;
@@ -19,6 +20,9 @@ import de.lessvoid.nifty.elements.Element;
 import de.lessvoid.nifty.elements.render.ImageRenderer;
 import de.lessvoid.nifty.screen.Screen;
 import de.lessvoid.nifty.screen.ScreenController;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
@@ -35,6 +39,7 @@ public class GuiController extends AbstractAppState implements ScreenController 
   private Camera cam;
   private float yTilt = -4.0f;
   private Vector3f home;
+  private AnimationControl ani;
  
   
  
@@ -46,12 +51,13 @@ public class GuiController extends AbstractAppState implements ScreenController 
   
   
   // Constructor with option to change camera-settings
-  public GuiController(Nifty nifty, DanceDoll dd) { 
+  public GuiController(Nifty nifty, DanceDoll dd, Initialize init) { 
     this.app = dd;
     this.nifty = nifty;
     this.posBuffer = dd.getCamera().getLocation();
     this.cam = dd.getCamera();
     this.home = new Vector3f(.0f,-4.0f,-20.0f);
+    this.ani = init.getAnimationControl();
     home();
   }
   
@@ -71,9 +77,19 @@ public class GuiController extends AbstractAppState implements ScreenController 
   
   // Controlls on left side
  public void load1(){
-   
+
   }
-  
+  @NiftyEventSubscriber(id="File_load_1")
+  public void zoom(final String id) { 
+        try {
+            BVHController bvh = new BVHController(app.getAssetManager(), "Animations/00_Fail.bvh");
+            ani.pushAnimation(bvh);
+            if(bvh.chkBVH())
+                ani.startAnimation(bvh.getBVHName());
+        } catch (IOException ex) {
+            Logger.getLogger(GuiController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+  }  
   
   // Controlls on right side
   public void home(){

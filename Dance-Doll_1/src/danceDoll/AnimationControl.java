@@ -39,14 +39,14 @@ public class AnimationControl {
      */
     public void pushAnimation(BVHController bvh) {
         if(bvh.data != null) {
-            // Anzahl der Knochen überprüfen
+            // Anzahl der Knochen überprüfen           
             if(this.m.getSkeletton().getBoneCount() >= bvh.data.getSkeleton().getBoneCount()) {
                 Mesh[] meshes = new Mesh[2];
                 meshes[0] = skeletonDebug.getWires();
                 bvh.createBindPose(skeletonDebug.getWires());
                 meshes[1] = skeletonDebug.getPoints();
                 bvh.createBindPose(skeletonDebug.getPoints());
-
+                
                 String animationName = bvh.data.getAnimation().getName();
 
                 // Hashmap mit BVH-Daten erstellen
