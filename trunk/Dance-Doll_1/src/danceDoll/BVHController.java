@@ -46,6 +46,7 @@ public class BVHController implements AnimEventListener {
     Animation anim;
     private String fileName;
     BVHAnimData data;
+    private boolean chkFile = false;
 
     /**
      * 
@@ -65,6 +66,7 @@ public class BVHController implements AnimEventListener {
                 scan = new Scanner(in);
                 scan.useLocale(Locale.US);
                 loadFromScanner();
+                chkFile = true;
             } finally {
                 if (in != null) {
                     in.close();
@@ -276,5 +278,13 @@ public class BVHController implements AnimEventListener {
 
     public void onAnimChange(AnimControl control, AnimChannel channel, String animName) {
         throw new UnsupportedOperationException("Not supported yet.");
+    }
+    
+    public boolean chkBVH() {
+        return chkFile;
+    }
+    
+    public String getBVHName() {
+        return this.data.getAnimation().getName();
     }
 }
