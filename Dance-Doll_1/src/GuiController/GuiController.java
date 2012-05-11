@@ -58,7 +58,7 @@ public class GuiController extends AbstractAppState implements ScreenController 
     this.cam = dd.getCamera();
     this.home = new Vector3f(.0f,-4.0f,-20.0f);
     this.ani = init.getAnimationControl();
-    home();
+    //home();
   }
   
   public GuiController(Nifty nifty) { 
@@ -74,15 +74,13 @@ public class GuiController extends AbstractAppState implements ScreenController 
   }
  
   public void onStartScreen() { }
-  
+ 
   // Controlls on left side
- public void load1(){
-
-  }
-  @NiftyEventSubscriber(id="File_load_1")
-  public void zoom(final String id) { 
+  
+  //play file 1
+  public void playOne() { 
         try {
-            BVHController bvh = new BVHController(app.getAssetManager(), "Animations/00_Fail.bvh");
+            BVHController bvh = new BVHController(app.getAssetManager(), "Animations/01_1_Kopf_kratzen.bvh");
             ani.pushAnimation(bvh);
             if(bvh.chkBVH())
                 ani.startAnimation(bvh.getBVHName());
@@ -151,7 +149,6 @@ public class GuiController extends AbstractAppState implements ScreenController 
   app.stop(); 
   }
  
-  
   public void startGame(String nextScreen) {
   nifty.gotoScreen("test");  // switch to another screen
   }
