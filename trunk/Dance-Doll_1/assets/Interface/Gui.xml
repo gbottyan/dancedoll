@@ -136,6 +136,11 @@
                         <onClick name="changeImage" active="Interface/Button/File_play_pressed.png" inactive="Interface/Button/File_play_normal.png" length="infinite" />
                     </effect>
                 </image>
+                
+<!--TEMP!!!! TEST BUTTON-->
+                <image id="test" filename="Interface/Button/the_test_button.png" visibleToMouse="true" align="center" inset="1px" filter="true" >
+                    <interact onClick="startErrorPopup( )" />
+                </image>
             
 <!-- ******************* -->
 <!--  REC_PLAY_BUTTON  -->
@@ -186,8 +191,8 @@
                 <panel  width="100%" height="5%" ></panel>
                 
 <!--File_text_1-->
-                <panel id="File_text_1" width="120px" height="40px" childLayout="center" backgroundImage="Interface/Button/File_text.png" > 
-                <text font="aurulent-sans-16.fnt" color="#ffff" text="  Bewegung_1.bvh" align="left"  />                                           
+                <panel id="File_text_1_panel" width="120px" height="40px" childLayout="center" backgroundImage="Interface/Button/File_text.png" > 
+                <text id="File_text_1" font="aurulent-sans-16.fnt" color="#ffff" text="  Bewegung_1.bvh" align="left"  />                                           
                 </panel>
                 
 <!--File_text_2-->
@@ -312,7 +317,24 @@
             <panel width="3%" height="100%" childLayout="vertical"></panel>
                     
      </layer>
-  </screen>  
+  </screen>
+  
+<!-- *************** -->
+<!--  Popup-Fenster  -->
+<!-- *************** -->
+
+  <popup id="errorPopup" childLayout="center" backgroundColor="#0000">
+      <panel height="100%" width="100%" childLayout="center">
+        <panel  height="25%" width="50%" childLayout="vertical">
+            <interact onClick="closePopup()"/>
+            <text height="12%" width="70%" font="Interface/Fonts/Calibri.fnt" color="#ffff" textHAlign="left" align="center"
+            text="Fehlermeldung:                                                                                     X"/>
+            <text id="errorMessage" height="70%" width="70%" textHAlign="left" wrap="true" 
+            font="Interface/Fonts/Calibri.fnt" color="#000f" text="" align="center" backgroundImage="Interface/Button/TEXT_ERROR.png" />  
+        </panel>
+      </panel>
+  </popup>
+  
 </nifty>
 
  
