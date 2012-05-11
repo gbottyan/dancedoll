@@ -18,6 +18,7 @@ import de.lessvoid.nifty.NiftyEventSubscriber;
 import de.lessvoid.nifty.controls.SliderChangedEvent;
 import de.lessvoid.nifty.elements.Element;
 import de.lessvoid.nifty.elements.render.ImageRenderer;
+import de.lessvoid.nifty.elements.render.TextRenderer;
 import de.lessvoid.nifty.screen.Screen;
 import de.lessvoid.nifty.screen.ScreenController;
 import java.io.IOException;
@@ -40,9 +41,10 @@ public class GuiController extends AbstractAppState implements ScreenController 
   private float yTilt = -4.0f;
   private Vector3f home;
   private AnimationControl ani;
- 
+  private Element errorPopup;
+
   
- 
+  
   /** custom methods */ 
  
   public GuiController(String data) { 
@@ -152,19 +154,51 @@ public class GuiController extends AbstractAppState implements ScreenController 
   public void startGame(String nextScreen) {
   nifty.gotoScreen("test");  // switch to another screen
   }
-
-  //ersetzt ein Bild im laufenden GUI
-  public void changePic(String infos){
-    
-    //trennt die infos im dem String
-    String[] temp = infos.split(";");
-    String oldPic = temp[0]; 
-    String nextPic = temp [1];
-    // find the element
-    Element imageElement = nifty.getCurrentScreen().findElementByName(oldPic);
-    // get the ImageRenderer
-    ImageRenderer imageRenderer = imageElement.getRenderer(ImageRenderer.class);
-    // change the image
-    imageRenderer.setImage(nifty.getRenderEngine().createImage(nextPic,false));
+  
+  /**
+  * Öffnet ein Popup-Fenster mit einer Meldung
+  * 
+  * @param message Meldung
+  */
+  
+  public void startErrorPopup(String message){
+      
+      String errorMessage = message;
+      
+      errorMessage = errorMessage + ("Mai 11, 2012 ");
+          //    + ":39:25 PM com.jme3.asset.AssetConfig "
+           //   + "loadTextWarnung: Cannot find loader com.jme3.scene.plugins.blender."
+           //   + "BlenderModelLoaderAL lib: ReleaseALC: 1 device not closed");
+      
+      if (errorMessage == null){errorMessage = "EMPTYERROR";}
+      
+       errorPopup = nifty.createPopup("errorPopup");
+       Element textElement = errorPopup.findElementByName("errorMessage");
+       TextRenderer textRenderer = textElement.getRenderer(TextRenderer.class);
+       textRenderer.setText(errorMessage); 
+       nifty.showPopup(nifty.getCurrentScreen(), errorPopup.getId(), null);
+       //nifty.getCurrentScreen().getFocusHandler().resetFocusElements();
   }
+  
+  /**
+  * Schließt ein Popup Fenster
+  */
+    public void closePopup(){
+    nifty.closePopup(errorPopup.getId());
+    }
+  
+  /**
+   * ersetzt den Text eines Elements <text/> in der laufenden GUI
+   * 
+   * @param id des Elements <text/>, newText der neue Text
+   */
+  
+    public void changeText(String id, String newText){
+    // das TextElement in der laufenden GUI finden
+    Element textElement = nifty.getCurrentScreen().findElementByName(id);
+    // den TextRenderer finden
+    TextRenderer textRenderer = textElement.getRenderer(TextRenderer.class);
+    // den Text ändern
+    textRenderer.setText(newText); 
+    }
 }
