@@ -94,7 +94,7 @@
      
 <!--File_play_1-->
                 <image id="File_play_1" filename="Interface/Button/File_play_normal.png" visibleToMouse="true" align="center" inset="1px" filter="true" >
-                    <!-- <interact onClick="startGame(test)" /> -->
+                    <interact onClick="playOne()" />
                     <effect>
                         <onHover name="changeImage" active="Interface/Button/File_play_select.png" inactive="Interface/Button/File_play_normal.png" />
                         <onClick name="changeImage" active="Interface/Button/File_play_pressed.png" inactive="Interface/Button/File_play_normal.png" length="infinite" />
@@ -256,11 +256,11 @@
                     
 <!--home-->
                     <image id="home" filename="Interface/Button/home_normal.png" visibleToMouse="true" align="center" inset="1px" filter="true" >
+                        <interact onClick="home()" />
                         <effect>
                             <onHover name="changeImage" active="Interface/Button/home_select.png" inactive="Interface/Button/home_normal.png" />
                             <onClick name="changeImage" active="Interface/Button/home_pressed.png" inactive="Interface/Button/home_normal.png" length="infinite" />
                         </effect>
-                        <interact onClick="home()" />
                     </image>                 
                     
                     <panel align="left" width="100%" height="20px" ></panel>
