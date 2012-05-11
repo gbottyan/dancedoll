@@ -162,22 +162,13 @@ public class GuiController extends AbstractAppState implements ScreenController 
   */
   
   public void startErrorPopup(String message){
-      
       String errorMessage = message;
-      
-      errorMessage = errorMessage + ("Mai 11, 2012 ");
-          //    + ":39:25 PM com.jme3.asset.AssetConfig "
-           //   + "loadTextWarnung: Cannot find loader com.jme3.scene.plugins.blender."
-           //   + "BlenderModelLoaderAL lib: ReleaseALC: 1 device not closed");
-      
       if (errorMessage == null){errorMessage = "EMPTYERROR";}
-      
        errorPopup = nifty.createPopup("errorPopup");
        Element textElement = errorPopup.findElementByName("errorMessage");
        TextRenderer textRenderer = textElement.getRenderer(TextRenderer.class);
        textRenderer.setText(errorMessage); 
        nifty.showPopup(nifty.getCurrentScreen(), errorPopup.getId(), null);
-       //nifty.getCurrentScreen().getFocusHandler().resetFocusElements();
   }
   
   /**
