@@ -136,12 +136,13 @@
                         <onClick name="changeImage" active="Interface/Button/File_play_pressed.png" inactive="Interface/Button/File_play_normal.png" length="infinite" />
                     </effect>
                 </image>
-                
+
 <!--TEMP!!!! TEST BUTTON-->
-                <image id="test" filename="Interface/Button/the_test_button.png" visibleToMouse="true" align="center" inset="1px" filter="true" >
+                <!--<image id="test" filename="Interface/Button/the_test_button.png" visibleToMouse="true" align="center" inset="1px" filter="true" >
                     <interact onClick="startErrorPopup(TEST)" />
-                </image>
-            
+                </image> -->
+
+
 <!-- ******************* -->
 <!--  REC_PLAY_BUTTON  -->
 <!-- ******************* -->
