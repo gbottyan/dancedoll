@@ -18,6 +18,11 @@ import com.jme3.system.AppSettings;
 import de.lessvoid.nifty.Nifty;
 import java.io.IOException;
 import GuiController.GuiController;
+import com.jme3.audio.AudioNode;
+import com.jme3.input.KeyInput;
+import com.jme3.input.controls.ActionListener;
+import com.jme3.input.controls.KeyTrigger;
+import com.jme3.input.controls.MouseButtonTrigger;
 
 /**
  *
@@ -29,6 +34,7 @@ public class Initialize extends DanceDoll {
     protected Skeleton skelett;
     private NiftyJmeDisplay niftyDisplay;
     private AnimationControl ani;
+    private AudioNode diskoStu;
 
     public Initialize(DanceDoll dd, AppSettings settings) throws IOException {
         danceDoll = dd;
@@ -44,6 +50,7 @@ public class Initialize extends DanceDoll {
         mouseInput = context.getMouseInput();
         keyInput = context.getKeyInput();
         inputManager = dollApp.getInputManager();
+        
 
         // Kamera einstellen        
         cam = dollApp.getCamera();
@@ -100,7 +107,33 @@ public class Initialize extends DanceDoll {
         ani.pushAnimation(bvh2);
         if(bvh1.chkBVH())
             ani.startAnimation(bvh1.getBVHName());
+        
+        // Musik starten
+        diskoStu = new AudioNode(assetManager, "Sounds/DiskoStu_Hibtin.ogg", false);
+        diskoStu.setLooping(false);
+        diskoStu.setVolume(2);
+        rootNode.attachChild(diskoStu);
+        diskoStu.play();
+        
+        // KeyListener starten
+        initKeys();
+    }    
+        
+    // KeyListener  
+    private void initKeys() {
+        inputManager.addMapping("StopMusic", new KeyTrigger(KeyInput.KEY_M));
+        inputManager.addListener(actionListener, "StopMusic");
     }
+ 
+    private ActionListener actionListener = new ActionListener() {
+        @Override
+        public void onAction(String name, boolean keyPressed, float tpf) {
+            if (name.equals("StopMusic") && !keyPressed) {
+            diskoStu.stop();
+            }
+        }
+    };
+    
     
     public DanceDoll getDoll() {
         return danceDoll;
