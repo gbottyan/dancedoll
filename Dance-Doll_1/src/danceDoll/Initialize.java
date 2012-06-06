@@ -126,10 +126,18 @@ public class Initialize extends DanceDoll {
     }
  
     private ActionListener actionListener = new ActionListener() {
+       public boolean music = true;
         @Override
         public void onAction(String name, boolean keyPressed, float tpf) {
             if (name.equals("StopMusic") && !keyPressed) {
-            diskoStu.stop();
+                if (music){
+                    diskoStu.pause();
+                    music = false;
+                }
+                else{
+                    diskoStu.play();
+                    music = true;
+                }
             }
         }
     };
